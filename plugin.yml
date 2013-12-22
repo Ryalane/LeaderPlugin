@@ -1,0 +1,49 @@
+name: Leaders
+version: 0.9
+main: me.Ryalane.Leaders.Main
+author: Ryalane1
+description: Leaders
+commands:
+    Leader:
+        description: "Open or close the gym. /leader <open/close> <gym>"
+        usage: /leader <open/close> <gym>
+        permission: leaders.leader
+        permission-message: "Sorry, you aren't a leader."
+    list:
+        description: "Lists all leaders. /gym list <gym>"
+        usage: /gym list <gym>
+        permission: leaders.list
+        permission-message: "Sorry, you don't have permission to view the list of leaders."
+    add:
+        description: "Add a new leader. /leader add <gym> <player name>"
+        usage: /leader add <gym> <player name>
+        permission: leaders.add
+        permission-message: "Sorry, you don't have permission to add a leader."
+    del:
+        description: "deletes a leader. /leader del <gym> <player name>"
+        usage: /leader del <gym> <player name>
+        permission: leaders.del
+        permission-message: "Sorry, you don't have permission to delete a leader."
+    Gym:
+        description: "View the gym status. /gym <gymname>"
+        usage: /gym <gymname>
+        permission: leaders.gym
+permissions:
+    leaders.leader:
+        description: Gives access to all opening and closing gyms
+        default: false
+    leaders.headleader:
+        description: Gives access to every Leader command
+        default: false
+    leaders.add:
+        description: Gives access to the Leader add command
+        default: false
+    leaders.del:
+        description: Gives access to the Leader delete command
+        default: false
+    leaders.list:
+        description: Gives access to the Leader list command
+        default: true
+    leaders.gym:
+        description: Gives access to /gym
+        default: true

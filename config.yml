@@ -1,0 +1,52 @@
+GymTypes:
+- Water
+- Electric
+- Grass
+- Rock
+- Normal
+- Ground
+- Ice
+- Fighting
+- Fire
+- Psychic
+Gyms:
+  Water:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Electric:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Grass:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Rock:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Normal:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Ground:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Ice:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Fighting:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Fire:
+    Leaders:
+    - Ryalane
+    Status: Closed
+  Psychic:
+    Leaders:
+    - Ryalane
+    Status: Closed
