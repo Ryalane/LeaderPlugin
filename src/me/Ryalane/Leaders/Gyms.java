@@ -5,7 +5,7 @@ import java.util.List;
 import org.bukkit.ChatColor;
 
 public class Gyms {
-
+// This isn't actually used at all now.
 	public Gyms() {
 		setM_Name("Default");
 		setM_Colour(ChatColor.WHITE);
