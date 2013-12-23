@@ -13,40 +13,40 @@ Gyms:
   Water:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Electric:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Grass:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Rock:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Normal:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Ground:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Ice:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Fighting:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Fire:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
   Psychic:
     Leaders:
     - Ryalane
-    Status: Closed
+    Status: false
