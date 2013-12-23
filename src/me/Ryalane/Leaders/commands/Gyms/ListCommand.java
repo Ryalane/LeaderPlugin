@@ -27,7 +27,7 @@ public class ListCommand extends CommandBase {
 						for (String s : instance.getConfig().getStringList("Gyms." + i + ".Leaders"))
 						{
 							count++;
-							inform(sender, count.toString() + ": " + s + GymTypes.size());
+							inform(sender, count.toString() + ": " + s);
 						}
 					}
 				}
@@ -35,7 +35,7 @@ public class ListCommand extends CommandBase {
 		}
 		else
 		{
-			error(sender, "You need to type the gym you want to check. " + ChatColor.GREEN + "/gym list <gym>");
+			error(sender, "You need to type the gym you want to check. " + ChatColor.GREEN + "/gym list <gym> Or /leader list <gym>");
 		}
 	}
 
@@ -46,7 +46,7 @@ public class ListCommand extends CommandBase {
 
 	@Override
 	public boolean playersOnly() {
-		return true;
+		return false;
 	}
 
 }

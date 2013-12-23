@@ -31,14 +31,13 @@ public class InfoCommand extends CommandBase {
 
 	@Override
 	public String getPermission() {
-		
 		return null;
 	}
 
 	@Override
 	public boolean playersOnly() {
 		
-		return true;
+		return false;
 	}
 
 }

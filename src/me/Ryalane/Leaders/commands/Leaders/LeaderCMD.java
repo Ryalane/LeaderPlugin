@@ -5,6 +5,7 @@ import java.util.Map;
 
 import me.Ryalane.Leaders.commands.Gyms.CommandBase;
 import me.Ryalane.Leaders.commands.Gyms.GymCommand;
+import me.Ryalane.Leaders.commands.Gyms.ListCommand;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,6 +21,7 @@ public class LeaderCMD implements CommandExecutor {
 		commands.put("info", new InfoCommand());
 		commands.put("add", new AddCommand());
 		commands.put("del", new DelCommand());
+		commands.put("list", new ListCommand());
 	}
 	
 	@Override

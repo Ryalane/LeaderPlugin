@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 public abstract class CommandBase {
 	private boolean isPlayer;
 	
+	public String informColor = ChatColor.AQUA.toString();
+	
 	public final void execute(CommandSender sender, String[] args) {
 		this.isPlayer = sender instanceof Player;
 		
@@ -20,9 +22,11 @@ public abstract class CommandBase {
 			return;
 		}
 		
-		if (this.getPermission() != null && !sender.hasPermission(this.getPermission())) {
-			error(sender, "Sorry, you don't have permission for this command.");
-			return;
+		if (this.isPlayer) {
+			if (this.getPermission() != null && !sender.hasPermission(this.getPermission())) {
+				error(sender, "Sorry, you don't have permission for this command.");
+				return;
+			}
 		}
 		
 		this.perform(sender, args);
@@ -30,17 +34,25 @@ public abstract class CommandBase {
 	
 	public void error(CommandSender sender, String msg) {
 		String color = this.isPlayer ? ChatColor.RED.toString() : ChatColor.WHITE.toString();
+		if (this.isPlayer) {
 		sender.sendMessage(ChatColor.BLUE + "[Leader Error] " + color + msg);
+		} else {
+			Bukkit.getConsoleSender().sendMessage(ChatColor.BLUE + "[Leader Error] " + color + msg);
+		}
 	}
 	
 	public void broadcast(CommandSender sender, String msg) {
 		String color = this.isPlayer ? ChatColor.DARK_AQUA.toString() : "";
-		Bukkit.broadcastMessage(ChatColor.RED + "[Leader] " + color + msg);
+		Bukkit.broadcastMessage(ChatColor.RED + "*[Leader] " + color + msg);
 	}
 	
 	public void inform(CommandSender sender, String msg) {
-		String color = this.isPlayer ? ChatColor.GREEN.toString() : "";
+		String color = this.isPlayer ? ChatColor.AQUA.toString() : "";
 		sender.sendMessage(color + msg);
+	}
+	
+	public void informConsole(String msg) {
+		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[Leader] " + ChatColor.WHITE + msg);
 	}
 	
 	boolean isPlayer() {

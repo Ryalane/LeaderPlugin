@@ -3,54 +3,67 @@ package me.Ryalane.Leaders.commands.Leaders;
 import java.util.List;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
 
 import me.Ryalane.Leaders.Leader;
 import me.Ryalane.Leaders.commands.Gyms.CommandBase;
 
 public class DelCommand extends CommandBase {
 	public Leader instance = Leader.instance;
+	public boolean isPlayer;
+	
 	@Override
 	public void perform(CommandSender sender, String[] args) {
 		List<String> GymTypes = instance.getConfig().getStringList("GymTypes");
-		if (args.length == 3)
-		{ 
-			if (args[0].equalsIgnoreCase("Del"))
-			{
-				for (String i : GymTypes)
+		this.isPlayer = sender instanceof Player;
+		
+		if (sender instanceof Player)
+		{
+			if (args.length == 3)
+			{ 
+				if (args[0].equalsIgnoreCase("Del"))
 				{
-					// Check for the gym
-					if (args[1].equalsIgnoreCase(i))
+					for (String i : GymTypes)
 					{
-						// check for the name
-						List<String> Leaders = instance.getConfig().getStringList("Gyms." + i + ".Leaders");
-						
-						if (Leaders.contains(args[2]))
+						// Check for the gym
+						if (args[1].equalsIgnoreCase(i))
 						{
-							Leaders.remove(args[2]);
-							instance.getConfig().set("Gyms." + i + ".Leaders", Leaders);
-							instance.saveConfig();
-							sender.sendMessage("Removed " + args[2] + " from the " + i + " gym.");
-						}
-						else
-						{
-							sender.sendMessage("Failed to remove " + args[2] + "From the " + i + " gym.");
+							// check for the name
+							List<String> Leaders = instance.getConfig().getStringList("Gyms." + i + ".Leaders");
+							
+							if (Leaders.contains(args[2]))
+							{
+								Leaders.remove(args[2]);
+								instance.getConfig().set("Gyms." + i + ".Leaders", Leaders);
+								instance.saveConfig();
+								inform(sender, "Removed " + args[2] + " from the " + i + " gym.");
+								informConsole("Removed " + args[2] + " from the " + i + " gym.");
+							}
+							else
+							{
+								inform(sender, "Failed to remove " + args[2] + "From the " + i + " gym.");
+								informConsole("Failed to remove " + args[2] + "From the " + i + " gym.");
+							}
 						}
 					}
 				}
 			}
 		}
+		else if (sender instanceof ConsoleCommandSender)
+		{
+			informConsole("Oh dear");
+		}
 	}
 
 	@Override
 	public String getPermission() {
-		// TODO Auto-generated method stub
 		return "leaders.del";
 	}
 
 	@Override
 	public boolean playersOnly() {
-		// TODO Auto-generated method stub
-		return true;
+		return false;
 	}
 
 }

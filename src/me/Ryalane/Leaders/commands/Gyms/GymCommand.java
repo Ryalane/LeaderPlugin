@@ -12,35 +12,23 @@ public class GymCommand extends CommandBase {
 	@Override
 	public void perform(CommandSender sender, String[] args) {
 		List<String> GymTypes = instance.getConfig().getStringList("GymTypes");
-
+		ChatColor statusColour;
+		
 		if (args.length == 1)
 		{
 			for (String i : GymTypes)
 			{
 				if (args[0].equalsIgnoreCase(i))
 				{
-					String gymStatus = instance.getConfig().getString("Gyms." + i + ".Status");
-					ChatColor statusColour = (gymStatus == "Open") ? ChatColor.GREEN : ChatColor.RED;
-					inform(sender, i + " gym is : " + statusColour + gymStatus);
+					boolean gymStatus = instance.getConfig().getBoolean("Gyms." + i + ".Status");
+					ChatColor gymColor = ChatColor.valueOf(instance.getConfig().getString("Gyms." + i + ".Color"));
+					
+					String status = gymStatus ? "Open" : "Closed";
+					statusColour = gymStatus ? ChatColor.GREEN : ChatColor.RED;
+					inform(sender, gymColor + i + informColor + " gym is : " + statusColour + status);
 
 				}
 			}
-		}
-		else if (args.length == 0)
-		{		
-			inform(sender, "List of Gyms:");
-			
-			for (String i : GymTypes)
-			{
-				String gymStatus = instance.getConfig().getString("Gyms." + i + ".Status");
-				ChatColor statusColour = (gymStatus == "Open") ? ChatColor.GREEN : ChatColor.RED;
-				inform(sender, i + " gym is : " + statusColour + gymStatus);
-			}
-
-		}
-		else
-		{
-
 		}
 	}
 

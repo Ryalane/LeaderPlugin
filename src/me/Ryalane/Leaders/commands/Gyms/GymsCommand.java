@@ -20,22 +20,22 @@ public class GymsCommand extends CommandBase {
 			for (String i : GymTypes)
 			{
 				boolean gymStatus = instance.getConfig().getBoolean("Gyms." + i + ".Status");
+				ChatColor gymColor = ChatColor.valueOf(instance.getConfig().getString("Gyms." + i + ".Color"));
+				
 				String status = gymStatus ? "Open" : "Closed";
 				statusColour = gymStatus ? ChatColor.GREEN : ChatColor.RED;
-				inform(sender, ChatColor.DARK_AQUA + i + " gym is : " + statusColour + status);
+				inform(sender, gymColor + i + informColor + " gym is : " + statusColour + status);
 			}
 
 	}
 
 	@Override
 	public String getPermission() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean playersOnly() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
