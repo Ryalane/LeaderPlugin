@@ -13,40 +13,50 @@ Gyms:
   Water:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: BLUE
   Electric:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: GOLD
   Grass:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: GREEN
   Rock:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: DARK_GRAY
   Normal:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: LIGHT_PURPLE
   Ground:
     Leaders:
     - Ryalane
     Status: false
+    Color: GRAY
   Ice:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: AQUA
   Fighting:
     Leaders:
     - Ryalane
     Status: false
+    Color: BOLD
   Fire:
     Leaders:
     - Ryalane
-    Status: false
+    Status: true
+    Color: RED
   Psychic:
     Leaders:
     - Ryalane
     Status: false
+    Color: DARK_PURPLE

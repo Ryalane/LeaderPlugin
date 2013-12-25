@@ -36,7 +36,7 @@ public class GymsCommand extends CommandBase {
 
 	@Override
 	public boolean playersOnly() {
-		return true;
+		return false;
 	}
 
 }

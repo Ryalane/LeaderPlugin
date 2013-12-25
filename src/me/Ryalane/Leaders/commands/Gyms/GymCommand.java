@@ -13,7 +13,7 @@ public class GymCommand extends CommandBase {
 	public void perform(CommandSender sender, String[] args) {
 		List<String> GymTypes = instance.getConfig().getStringList("GymTypes");
 		ChatColor statusColour;
-		
+
 		if (args.length == 1)
 		{
 			for (String i : GymTypes)
@@ -26,7 +26,6 @@ public class GymCommand extends CommandBase {
 					String status = gymStatus ? "Open" : "Closed";
 					statusColour = gymStatus ? ChatColor.GREEN : ChatColor.RED;
 					inform(sender, gymColor + i + informColor + " gym is : " + statusColour + status);
-
 				}
 			}
 		}
@@ -39,7 +38,7 @@ public class GymCommand extends CommandBase {
 
 	@Override
 	public boolean playersOnly() {
-		return true;
+		return false;
 	}
 
 }

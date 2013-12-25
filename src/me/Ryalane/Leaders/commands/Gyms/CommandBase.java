@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 // Date: 2013-12-22
 
 public abstract class CommandBase {
-	private boolean isPlayer;
+	public boolean isPlayer;
 	
 	public String informColor = ChatColor.AQUA.toString();
 	
@@ -47,12 +47,30 @@ public abstract class CommandBase {
 	}
 	
 	public void inform(CommandSender sender, String msg) {
-		String color = this.isPlayer ? ChatColor.AQUA.toString() : "";
-		sender.sendMessage(color + msg);
+		String color = this.isPlayer ? ChatColor.AQUA.toString() : ChatColor.WHITE.toString();
+		if (sender instanceof Player)
+		{
+			sender.sendMessage(color + msg);
+		}
+		else
+		{
+			informConsole(msg);
+		}
 	}
 	
 	public void informConsole(String msg) {
 		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[Leader] " + ChatColor.WHITE + msg);
+	}
+	
+	public void informWithPermission(String permission, String msg) {
+		for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+			if (p.hasPermission(permission))
+			{
+				String color = ChatColor.AQUA.toString();
+				msg = "[Leader] " + msg;
+				p.sendMessage(color + msg);
+			}
+		}
 	}
 	
 	boolean isPlayer() {

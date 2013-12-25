@@ -27,6 +27,7 @@ public class InfoCommand extends CommandBase {
 		inform(sender, "/leader "  + red + "<Open/Close> <gym name>" + green + " - Open or close a gym.");
 		inform(sender, "/leader add " + red + "<gym name> <player name>" + green + " - Adds the player to the specified gym as a leader.");
 		inform(sender, "/leader del " + red + "<gym name> <player name>" + green + " - Removes the player from the specified gym.");
+		inform(sender, "/leader givebadge " + red + "<player> <badge name/id>" + green +" - Gives the player a badge");
 	}
 
 	@Override

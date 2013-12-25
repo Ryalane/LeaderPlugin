@@ -22,6 +22,7 @@ public class LeaderCMD implements CommandExecutor {
 		commands.put("add", new AddCommand());
 		commands.put("del", new DelCommand());
 		commands.put("list", new ListCommand());
+		commands.put("givebadge", new GiveBadge());
 	}
 	
 	@Override
